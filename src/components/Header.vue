@@ -1,64 +1,74 @@
 <template>
   <header class="d-flex">
-    <div class="logo mt-4 ms-4">
-      <img alt="logo" src="../assets/logo.png" />
-    </div>
+    <router-link class="logo" to="/">
+      <img alt="logoImg" src="../assets/logo.png" />
+    </router-link>
+    
+    <nav class="d-flex p-0">
+      <div class="nav_item">
+        <a class="navitem__text" href="##">
+          <img src="../assets/rss.png" alt="">FEED
+        </a>
+      </div>
+      <div class="nav_item">
+        <a class="navitem__text" href="##">
+          <img src="../assets/users.png" alt="">NETWORK
+        </a>
+      </div>
+      <div class="nav_item">
+        <a class="navitem__text" href="##">
+          <img src="../assets/briefcase.png" alt="">JOBS
+        </a>
+      </div>
+      <div class="nav_item">
+        <a class="navitem__text" href="##">
+          <img src="../assets/message-square.png" alt="">CHAT
+        </a>
+      </div>
+      <div class="nav_item">
+        <a class="navitem__text" href="##">
+          <img src="../assets/bell.png" alt="">NOTICES
+        </a>
+      </div>
 
-    <nav class="d-flex">
-      <div class="nav_item">
-        <div class="navitem__icon"></div>
-        <a class="navitem__text" href="##">FREE</a>
-      </div>
-      <div class="nav_item">
-        <div class="navitem__icon"></div>
-        <a class="navitem__text" href="##">Network</a>
-      </div>
-      <div class="nav_item">
-        <div class="navitem__icon"></div>
-        <a class="navitem__text" href="##">jobs</a>
-      </div>
-      <div class="nav_item">
-        <div class="navitem__icon"></div>
-        <a class="navitem__text" href="##">chat</a>
-      </div>
-      <div class="nav_item">
-        <div class="navitem__icon"></div>
-        <a class="navitem__text" href="##">notices</a>
-      </div>
-
-      <div class="input-group mb-3 ms-5">
-        <span class="input-group-text" id="basic-addon1">
+      <div class="search">
+        <div class="w-100 d-flex align-items-center">
           <img src="../assets/search.png" alt="search" />
-        </span>
-        <input
+          <input
           type="text"
-          class="form-control"
+          class="w-100"
           placeholder="Search"
           aria-label="Username"
           aria-describedby="basic-addon1"
         />
+        </div>
       </div>
     </nav>
 
-    <div class="d-flex mt-4">
-      <div>
-        <img src="@/assets/rectangle.png" alt="" />
-      </div>
-      <!-- 左右並排 -->
-      <div class="d-flex flex-column">
-        <div>
-          <p class="name">D. Kargaev</p>
+    <div class="person">
+      <div class="d-flex">
+        <div class="personImg">
+          <img src="@/assets/rectangle.png" alt="" />
         </div>
-        <div class="d-flex">
-          <p class="view_quantity">367 views today</p>
-          <p class="statistics ms-3">+32</p>
+        <!-- 左右並排 -->
+        <div class="d-flex flex-column intro">
+          <div class="">
+            <p class="mb-0 text-start fw-bold">D. Kargaev</p>
+          </div>
+          <div class="d-flex watchNum">
+            <p class="view_quantity mb-0">367 views today</p>
+            <p class="statistics ms-3 mb-0">+32</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="d-flex flex-column mt-4 more">
-      <img src="@/assets/more.png" alt="" />
-      <p class="other">OTHER</p>
+    <div class="more">
+      <div class="">
+        <a href="#" class="d-flex flex-column align-items-center">
+          <img src="@/assets/more.png" alt="" />OTHER
+        </a>
+      </div>
     </div>
 
     <!-- Your header content goes here -->
@@ -72,46 +82,111 @@ export default {
 };
 </script>
 
-<style scoped>
-.more {
-  width: 24px;
-  height: 24px;
-}
-.other {
+<style lang="scss" scoped>
+* {
   color: #181818;
 }
-.name {
-  color: #181818;
-  font-weight: 700;
+header {
+  height: 80px;
+  .logo {
+    height: 80px;
+    width: 130px;
+    border-right: 1px solid #F4F4F4;
+    margin-right: 13px;
+    img {
+      margin: 17px 38px;
+      width: 46px;
+      height: 46px;
+    }
+  }
+
+  nav {
+    .nav_item {
+      width: 90px;
+      height: 80px;
+      padding: 17px 33px;
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        font-size: medium;
+        img {
+        margin-bottom: 5px;
+        }
+      }
+    }
+    .search {
+      width: 367px;
+      display: flex;
+      border-right: 1px solid #f4f4f4;
+      padding-right: 20px;
+      div{
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 10px;
+        }
+        input {
+          height: 30px;
+          padding-left: 10px;
+          border: none;
+        }
+        
+      }
+    }
+  }
+  .person {
+    width: 330px;
+    margin-left: 30px;
+    margin-left: 30px;
+    padding-top: 17px;
+    border-right: 1px solid #f4f4f4;
+    div {
+      .personImg {
+        margin-right: 15px;
+      }
+      .intro {
+        .watchNum {
+          .view_quantity {
+            color: #747474;
+          }
+          .statistics {
+            color: #02b033;
+          }
+        }
+      }
+    }
+  }
+  .more {
+    width: 90px;
+    height: 80px;
+    padding: 17px 33px;
+    border-right: 1px solid #f4f4f4;
+    div {
+      a {
+        text-decoration: none;
+        font-size: medium;
+        font-weight: bold;
+        img {
+          width: 24px;
+          height: 24px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+    
+  }
+}
+.nav_item:nth-child(5) {
+  margin-right: 20px;
+  border-right: 1px solid #f4f4f4;
 }
 
-.view_quantity {
-  color: #747474;
+::placeholder {
+  color: #CECECE;
 }
 
-.statistics {
-  color: #02b033;
-}
 
-.navitem__icon {
-  width: 30px;
-  height: 20px;
-  background-image: url("../assets/rss.png");
-  background-repeat: no-repeat;
-  background-position: 5px -2px;
-  margin: 0 30px;
-}
-nav .nav_item:nth-child(2) .navitem__icon {
-  background-image: url("../assets/users.png");
-}
-nav .nav_item:nth-child(3) .navitem__icon {
-  background-image: url("../assets/briefcase.png");
-}
-nav .nav_item:nth-child(4) .navitem__icon {
-  background-image: url("../assets/message-square.png");
-}
-nav .nav_item:nth-child(5) .navitem__icon {
-  background-image: url("../assets/bell.png");
-}
 /* Your component's styles go here */
 </style>
